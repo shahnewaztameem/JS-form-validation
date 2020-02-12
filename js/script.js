@@ -41,7 +41,7 @@ function checkEmail(input) {
 
 // Check for input length
 function checkLength(input, minLength, maxLength) {
-    if (input.value.length <= minLength) {
+    if (input.value.length < minLength) {
         showErrorMsg(input, `${getFieldName(input)} must be at least ${minLength} characters!`);
     } else if (input.value.length > maxLength) {
         showErrorMsg(input, `${getFieldName(input)} must be less than ${maxLength} characters!`);
@@ -82,7 +82,7 @@ form.addEventListener('submit', event => {
     checkRequiredField([username, email, password, confirmPassword]);
     //check for length
     checkLength(username, 6, 25);
-    checkLength(password, 5, 40);
+    checkLength(password, 6, 40);
     checkUsername(username);
     checkEmail(email);
     checkPasswordsMatch(password, confirmPassword);
